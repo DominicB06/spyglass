@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -33,6 +34,7 @@ public class Goal {
 	private String picture;
 	
 	@Column(name = "target_date")
+	@Future
 	private LocalDate targetDate;
 	
 	@Column(name = "target_amount")
