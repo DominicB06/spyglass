@@ -28,7 +28,7 @@ public class Goal {
 	private String name;
 	
 	@Column(name = "description")
-	private String desription;
+	private String description;
 	
 	@Column(name = "picture")
 	private String picture;
@@ -64,11 +64,11 @@ public class Goal {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDesription() {
-		return desription;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesription(String desription) {
-		this.desription = desription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getPicture() {
 		return picture;
@@ -103,7 +103,7 @@ public class Goal {
 	
 	@Override
 	public String toString() {
-		return "goal [goalId=" + goalId + ", name=" + name + ", desription=" + desription + ", picture=" + picture
+		return "goal [goalId=" + goalId + ", name=" + name + ", description=" + description + ", picture=" + picture
 				+ ", targetDate=" + targetDate + ", targetAmount=" + targetAmount + ", currentAmount=" + currentAmount
 				+ ", user=" + user + "]";
 	}
