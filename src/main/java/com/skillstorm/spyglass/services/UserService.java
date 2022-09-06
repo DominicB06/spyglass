@@ -25,6 +25,11 @@ public class UserService {
 		return repository.findByEmail(email);
 	}
 	
+	public User validateUser(String email, String password) {
+		User user = repository.findByEmailAndPassword(email, password);
+		return user;
+	}
+	
 	public User createUser(User user) {
 		return repository.save(user);
 	}

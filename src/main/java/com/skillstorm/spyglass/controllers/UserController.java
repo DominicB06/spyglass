@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +32,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 		@ApiResponse(responseCode = "201", description = "Created"),
 		@ApiResponse(responseCode = "401", description = "Unauthorized")
 })
+@CrossOrigin(origins="http://localhost:4200")
 public class UserController {
 
 	@Autowired
@@ -47,6 +49,13 @@ public class UserController {
 	@Operation(summary = "Find user by id", description = "returns the user")
 	public ResponseEntity<User> findByEmail(@PathVariable(value = "email") String email) {
 		User user = service.findByEmail(email);
+		return ResponseEntity.ok(user);
+	}
+	
+	@GetMapping("/validate/{email}/{password}")
+	@Operation(summary = "Used to validate user using their email and password", description = "returns the user if email and password match")
+	public ResponseEntity<User> validateUser(@PathVariable(value = "email") String email, @PathVariable(value = "password") String password) {
+		User user = service.validateUser(email, password);
 		return ResponseEntity.ok(user);
 	}
 	

@@ -12,6 +12,6 @@ import com.skillstorm.spyglass.models.User;
 @Repository
 public interface GoalRepository extends JpaRepository<Goal, Integer>{
 
-	@Query("FROM Goal g JOIN g.user a where a.userId = user")
+	@Query("FROM Goal g JOIN g.user a where a.userId = :user")
 	public List<Goal> findByUser(int user);
 }
