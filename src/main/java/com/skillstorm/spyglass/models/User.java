@@ -35,7 +35,7 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	@OneToMany(mappedBy = "User")
+	@OneToMany(mappedBy = "user")
 	@JsonIgnore
 	private List<Goal> goals;
 
